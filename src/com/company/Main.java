@@ -6,18 +6,14 @@ public class Main {
         BankAccount client = new BankAccount(10000);
         while (true) {
             try {
-                client.deposit(5500);
                 System.out.println("У вас осталось = " + client.getAmount());
                 client.withDraw(6000);
-                System.out.println("У вас осталось = " + client.getAmount());
-                System.out.println("______________________________________");
             }catch (LimitException le) {
-                System.out.println("Ваш баланс :  " + client.getAmount());
-                double amount = client.getAmount();
-                if (client.getAmount() > client.getSumDW())
-                    amount = le.getRemainingAmount() - le.getRemainingAmount();
-                System.out.println("C вашего счёта снято  = " + le.getRemainingAmount());
-                System.out.println("Остаток баланса = " +  amount);
+                System.out.println(le.getMessage());
+                System.out.println("Вы можете снять только: " + client.getAmount());
+                LimitException limitException = new LimitException();
+                client.amount = limitException.getRemainingAmount() - limitException.getRemainingAmount();
+                System.out.println("Остаток баланса = " + client.getAmount());
                 break;
             }
 
