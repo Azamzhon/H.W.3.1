@@ -3,7 +3,8 @@ package com.company;
 public class Main {
 
     public static void main(String[] args) {
-        BankAccount client = new BankAccount(10000);
+        BankAccount client = new BankAccount();
+        client.deposit(10000);
         while (true) {
             try {
                 System.out.println("У вас осталось = " + client.getAmount());

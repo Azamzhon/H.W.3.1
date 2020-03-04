@@ -7,6 +7,10 @@ public class BankAccount {
         this.amount = amount;
     }
 
+    public BankAccount() {
+
+    }
+
     public double getAmount() {
         return amount;
     }
